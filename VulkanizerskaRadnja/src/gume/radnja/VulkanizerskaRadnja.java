@@ -11,7 +11,6 @@ import gume.AutoGuma;
  *
  */
 public class VulkanizerskaRadnja {
-	
 	/**
 	 * Lista guma
 	 */
@@ -32,7 +31,7 @@ public class VulkanizerskaRadnja {
 	}
 
 	/**
-	 * Pronalazi gumu u listi guma ukoliko postoji
+	 * Pronalazi gumu u listi guma ukoliko postoji prema marki i modelu, dimenzije nisu bitne
 	 * @param markaModel Naziv marke gume i modela gume
 	 * @return novaLista vraca gumu koju pronadje kao listu
 	 * @return null ukoliko je uneta vrednost markaModel null
@@ -42,8 +41,18 @@ public class VulkanizerskaRadnja {
 			return null;
 		LinkedList<AutoGuma> novaLista = new LinkedList<AutoGuma>();
 		for (int i = 0; i < gume.size(); i++)
-			if (gume.get(i).equals(markaModel))
+			if (gume.get(i).getMarkaModel().equals(markaModel))
 				novaLista.add(gume.get(i));
 		return novaLista;
 	}
+
+	/**
+	 * Vraca listu guma
+	 * @return gume lista guma
+	 */
+	public LinkedList<AutoGuma> getGume() {
+		return gume;
+	}
+	
+	
 }
